@@ -8,3 +8,35 @@
 export interface HealthStatus {
   status: string;
 }
+
+export type ChatMessageRole =
+  (typeof ChatMessageRole)[keyof typeof ChatMessageRole];
+
+export const ChatMessageRole = {
+  user: "user",
+  assistant: "assistant",
+} as const;
+
+export interface ChatMessage {
+  role: ChatMessageRole;
+  /** @minLength 1 */
+  content: string;
+}
+
+export type ChatRequestLanguage =
+  (typeof ChatRequestLanguage)[keyof typeof ChatRequestLanguage];
+
+export const ChatRequestLanguage = {
+  en: "en",
+  hi: "hi",
+} as const;
+
+export interface ChatRequest {
+  /** @minItems 1 */
+  messages: ChatMessage[];
+  language?: ChatRequestLanguage;
+}
+
+export interface ChatResponse {
+  reply: string;
+}

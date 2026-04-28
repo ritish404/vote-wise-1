@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "18F0etA58HyBGOOm8FwjT"
+uri = "file://artifacts/votewise/assets/images/icon.png"
+type = "image"
+title = "votewise app icon"

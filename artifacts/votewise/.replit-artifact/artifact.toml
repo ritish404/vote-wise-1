@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "VoteWise"
+version = "1.0.0"
+id = "artifacts/votewise"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 23042
+
+[services.development]
+run = "pnpm --filter @workspace/votewise run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/votewise", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/votewise", "run", "serve" ]
+
+[services.env]
+PORT = "23042"
+BASE_PATH = "/"

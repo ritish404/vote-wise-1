@@ -14,3 +14,26 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * Sends a conversation history to Claude and returns the assistant reply.
+ * @summary Send a message to the VoteWise election assistant
+ */
+
+export const sendChatMessageBodyLanguageDefault = `en`;
+
+export const SendChatMessageBody = zod.object({
+  messages: zod
+    .array(
+      zod.object({
+        role: zod.enum(["user", "assistant"]),
+        content: zod.string().min(1),
+      }),
+    )
+    .min(1),
+  language: zod.enum(["en", "hi"]).default(sendChatMessageBodyLanguageDefault),
+});
+
+export const SendChatMessageResponse = zod.object({
+  reply: zod.string(),
+});
