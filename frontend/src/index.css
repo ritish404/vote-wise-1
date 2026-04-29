@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-saffron-50: #fff8f0;
+  --color-saffron-100: #ffeedb;
+  --color-saffron-500: #f97316;
+  --color-saffron-600: #ea580c;
+  --color-india-green-50: #f0fdf4;
+  --color-india-green-500: #138808;
+  --color-india-green-600: #117807;
+  
+  --color-brand-light: #f8fafc;
+  --color-brand-dark: #0f172a;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-slate-900 dark:bg-brand-dark dark:text-slate-50 antialiased selection:bg-saffron-500/30;
+  }
+}
+
+@utility glass {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border border-white/30 dark:border-slate-800/50 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)];
+}
+
+@utility text-gradient-primary {
+  @apply bg-gradient-to-r from-saffron-500 via-orange-400 to-india-green-500 bg-clip-text text-transparent;
+}

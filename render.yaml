@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: votewise-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: ANTHROPIC_API_KEY
+        sync: false
